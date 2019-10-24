@@ -1,3 +1,5 @@
 Order history and revenues: 
-Total salary in krones is: 0
+Total salary in krones is: 114
 Most popular orders
+Order: 1: Visuvio
+Order: 2: Visuvio

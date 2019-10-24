@@ -10,11 +10,10 @@ import java.util.Scanner;
 public class MenuLine {
 
     Scanner myScan;
-
+  
     private final menuCard menuCard;
     private final OrganizeOrders orders;
     private final OrderHistory history;
-    private int orderTime;
     private int PizzaNr;
     private int answer;
 
@@ -80,24 +79,19 @@ public class MenuLine {
                 orders.getOrders().add(menuCard.getMenuCard().get(pizzaNr));
                 history.getPizzaHistory().add(menuCard.getMenuCard().get(pizzaNr));
 
-                System.out.println("What hour would you like to get your order?");
-
-                orderTime = myScan.nextInt();
-
                 clearConsole();
                 printMainMenu();
 
                 break;
 
             case 3:
-                System.out.println(orderTime);
-
-                System.out.println(orders.toString() + "Picked up by: " + orderTime + "o'clock");
+                
+                
                 System.out.println("For order remove press 1, else press 6 to return to main menu");
 
                 int remove = myScan.nextInt();
 
-                clearConsole();
+                
 
                 if (remove == 6) {
                     clearConsole();
@@ -105,7 +99,8 @@ public class MenuLine {
                     break;
                 }
 
-                System.out.println("Which order would you like to remove?");
+                System.out.println("Which order would you like to remove?\n");
+                System.out.println(orders);
                 pizzaNr = myScan.nextInt();
 
                 clearConsole();

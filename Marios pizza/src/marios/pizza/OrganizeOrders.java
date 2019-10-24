@@ -1,5 +1,6 @@
 package marios.pizza;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +12,9 @@ public class OrganizeOrders {
     private static int count;
 
     private ArrayList<Pizza> orders = new ArrayList<>();
-
+    
+    private final LocalTime time = LocalTime.now();
+      
     public ArrayList<Pizza> getOrders() {
         return orders;
     }
@@ -30,7 +33,7 @@ public class OrganizeOrders {
 
         for (Pizza pizzas : orders) {
             count++;
-            result += "Order " + count + ": " + pizzas.getPizzaName() + " pizza" + "\n";
+            result += "Order " + count + ": " + pizzas.getPizzaName() + " pizza, Time of order: " + + time.getHour() + ":" + time.getMinute() + " o'clock" + "\n";
 
         }
         return result;
