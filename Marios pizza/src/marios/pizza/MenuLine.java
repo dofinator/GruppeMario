@@ -11,7 +11,7 @@ public class MenuLine {
 
     Scanner myScan;
 
-    private final menuCard menuCard;
+    private final MenuCard menuCard;
     private final OrganizeOrders orders;
     private final OrderHistory history;
     private int PizzaNr;
@@ -19,7 +19,7 @@ public class MenuLine {
 
     public MenuLine() throws IOException {
         myScan = new Scanner(System.in);
-        menuCard = new menuCard();
+        menuCard = new MenuCard();
         orders = new OrganizeOrders();
         history = new OrderHistory();
 
@@ -56,12 +56,12 @@ public class MenuLine {
             case 1:
                 System.out.println(menuCard.toString());
 
-                System.out.println("Press 6 to return to main menu");
+                System.out.println("Press 0 to return to main menu");
                 break;
 
             case 2:
                 clearConsole();
-                System.out.println("Press 1 to continue, else press 6 to return to main menu");
+                /*System.out.println("Press 1 to continue, else press 0 to return to main menu");
 
                 int order = myScan.nextInt();
                 clearConsole();
@@ -69,15 +69,17 @@ public class MenuLine {
                     clearConsole();
                     printMainMenu();
                     break;
-                }
+                }*/
 
-                System.out.println("Which pizza from the menu card would you like to add as a order, enter a number 1-14 ");
+                System.out.println("Which pizza from the menu card would you like to add as a order, enter a number 1-14, ");
+                System.out.println("Press 0 to return to main menu");
+                
 
-                int pizzaNr = myScan.nextInt();
+                int pizzaNo = myScan.nextInt();
 
                 clearConsole();
-                orders.getOrders().add(menuCard.getMenuCard().get(pizzaNr));
-                history.getPizzaHistory().add(menuCard.getMenuCard().get(pizzaNr));
+                orders.getOrders().add(menuCard.getMenuCard().get(pizzaNo));
+                history.getPizzaHistory().add(menuCard.getMenuCard().get(pizzaNo));
 
                 clearConsole();
                 printMainMenu();
@@ -87,12 +89,12 @@ public class MenuLine {
             case 3:
                 System.out.println(orders.toString());
 
-                System.out.println("For order remove press 1, else press 6 to return to main menu");
+                System.out.println("For order remove press 1, else press 0 to return to main menu");
 
                 int remove = myScan.nextInt();
                 clearConsole();
 
-                if (remove == 6) {
+                if (remove == 0) {
                     clearConsole();
                     printMainMenu();
                     break;
@@ -100,23 +102,23 @@ public class MenuLine {
 
                 System.out.println("Which order would you like to remove?\n");
                 System.out.println(orders);
-                pizzaNr = myScan.nextInt();
+                pizzaNo = myScan.nextInt();
 
                 clearConsole();
                 printMainMenu();
 
-                orders.getOrders().remove(pizzaNr - 1);
+                orders.getOrders().remove(pizzaNo - 1);
 
                 break;
 
             case 4:
                 System.out.println("The total salary is: " + history.calculateRevenue() + " kr" + "\n");
                 System.out.println(history.pizzaHistory());
-                System.out.println("press 6 to return to main menu");
+                System.out.println("press 0 to return to main menu");
                 break;
             case 5:
                 history.revenueFile();
-            case 6:
+            case 0:
                 clearConsole();
 
                 printMainMenu();

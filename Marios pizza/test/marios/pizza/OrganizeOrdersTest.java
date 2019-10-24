@@ -10,17 +10,17 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author phill
+ * @author Jonas, Mads, Christoffer og Phillip
  */
 public class OrganizeOrdersTest {
 
     Pizza pizza;
     OrganizeOrders or;
-    menuCard mc;
+    MenuCard mc;
     private int tempPizzaNr;
     public OrganizeOrdersTest() {
         or = new OrganizeOrders();
-        mc = new menuCard();
+        mc = new MenuCard();
         pizza = new Pizza("Dennis", "tomatsauce", 57);
         tempPizzaNr = 0;
         

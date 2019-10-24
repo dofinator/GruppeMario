@@ -42,7 +42,7 @@ public class OrderHistory {
 
             bw.close();
         } catch (IOException ex) {
-            System.out.println("lol");
+            System.out.println("Could not create file");
         }
     }
 
@@ -54,7 +54,7 @@ public class OrderHistory {
         String result = "";
         for (Pizza pizzas : pizzaHistory) {
             count++;
-            result += "Order: " + count+1 + ": " + pizzas.getPizzaName() + "\n";
+            result += "Order: " + count + ": " + pizzas.getPizzaName() + "\n";
             
         }
         return result;

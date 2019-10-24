@@ -7,11 +7,11 @@ import java.util.Map;
  *
  * @author Jonas, Mads, Christoffer og Phillip
  */
-public class menuCard {
+public class MenuCard {
 
     private HashMap<Integer, Pizza> menuCard = new HashMap<>();
 
-    public menuCard() {
+    public MenuCard() {
         menuCard.put(1, new Pizza("Visuvio", "tomatsauce, ost , skinke og oregano", 57));
         menuCard.put(2, new Pizza("Amerikaner", "tomatsauce, ost, oksefars og oregano", 53));
         menuCard.put(3, new Pizza("Cacciatore", "tomatsauce, ost, pepperoni og oregano", 57));
