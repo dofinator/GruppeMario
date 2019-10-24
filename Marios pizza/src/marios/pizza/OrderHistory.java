@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 public class OrderHistory {
 
     private static int count;
+    
     private ArrayList<Pizza> pizzaHistory = new ArrayList<>();
 
     public int calculateRevenue() {
