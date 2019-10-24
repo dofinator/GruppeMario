@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  *
- * @author Jonas
+ * @author Jonas, Mads, Christoffer og Phillip
  */
 public class menuCard {
 
@@ -26,8 +26,7 @@ public class menuCard {
         menuCard.put(12, new Pizza("Le Blissola", " tomatsauce, ost skinke, rejer og oregano", 61));
         menuCard.put(13, new Pizza("Venezia", "tomatsauce, ost, skinke, bacon og oregano", 61));
         menuCard.put(14, new Pizza("Mafia", "tomatsauce, ost, pepperoni, bacon, løg og oregano", 61));
-        
-        
+
     }
 
     public HashMap<Integer, Pizza> getMenuCard() {
@@ -37,7 +36,7 @@ public class menuCard {
     @Override
     public String toString() {
         String result = "";
-        for (Map.Entry<Integer, Pizza>menuCard1 : menuCard.entrySet()){
+        for (Map.Entry<Integer, Pizza> menuCard1 : menuCard.entrySet()) {
             result += menuCard1.getKey() + ": " + menuCard1.getValue().getPizzaName() + " - " + " " + menuCard1.getValue().getPizzaTopping() + " " + menuCard1.getValue().getPrice() + "kr." + "\n";
         }
         return result;

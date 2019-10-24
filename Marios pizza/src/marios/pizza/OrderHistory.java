@@ -9,10 +9,11 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Jonas
+ * @author Jonas, Mads, Christoffer og Phillip
  */
 public class OrderHistory {
 
+    private static int count;
     private ArrayList<Pizza> pizzaHistory = new ArrayList<>();
 
     public int calculateRevenue() {
@@ -32,19 +33,13 @@ public class OrderHistory {
             BufferedWriter bw = new BufferedWriter(fw);
 
             bw.write("Order history and revenues: " + "\n");
-            for (Pizza pizzar : pizzaHistory) {
-                int revenues = 0;
-                revenues += pizzar.getPrice();
-                bw.write("Revenues " + revenues + " kr." + "\n");
-            }
+
+            bw.write("Total salary in krones is: " + calculateRevenue() + "\n");
 
             bw.write("Most popular orders" + "\n");
 
-            for (Pizza pizzas : pizzaHistory) {
-                String orders = "";
+            bw.write(pizzaHistory());
 
-                orders += pizzaHistory.indexOf(pizzas) + 1 + ": " + pizzas.getPizzaName() + "\n";
-            }
             bw.close();
         } catch (IOException ex) {
             System.out.println("lol");
@@ -55,10 +50,12 @@ public class OrderHistory {
         return pizzaHistory;
     }
 
-    public String toString() {
+    public String pizzaHistory() {
         String result = "";
         for (Pizza pizzas : pizzaHistory) {
-            result += pizzaHistory.indexOf(pizzas) + 1 + ": " + pizzas.getPizzaName() + "\n";
+            count++;
+            result += "Order: " + count + ": " + pizzas.getPizzaName() + "\n";
+            
         }
         return result;
     }

@@ -2,9 +2,10 @@ package marios.pizza;
 
 /**
  *
- * @author Jonas
+ * @author Jonas, Mads, Christoffer og Phillip
  */
 public class Pizza {
+
     private String pizzaName;
     private String pizzaTopping;
     private int price;
@@ -26,6 +27,5 @@ public class Pizza {
     public int getPrice() {
         return price;
     }
-    
-    
+
 }
