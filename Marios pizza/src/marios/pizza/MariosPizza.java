@@ -8,12 +8,9 @@ import java.io.IOException;
  */
 public class MariosPizza {
 
-    public static void main(String[] args) throws IOException  {
+    public static void main(String[] args) throws IOException {
         MenuLine menu = new MenuLine();
-       
-        
-       
-          
+
     }
 
 }

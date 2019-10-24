@@ -9,19 +9,20 @@ import java.util.ArrayList;
  */
 public class OrganizeOrders {
 
-   // private static int count;
-
+    private static int count;
+    private int orderNo;
     private ArrayList<Pizza> orders = new ArrayList<>();
 
     private final LocalTime time = LocalTime.now();
 
     public ArrayList<Pizza> getOrders() {
         return orders;
+
     }
 
     public void addOrder(Pizza pizza) {
         orders.add(pizza);
-
+        count++;
     }
 
     public void removeOrder(Pizza pizza) {
@@ -32,13 +33,12 @@ public class OrganizeOrders {
     public String toString() {
         String result = "";
 
-        for (Pizza pizzas : orders) {
+        for (int i = 0; i < orders.size(); i++) {
 
-            result += "Order " + (orders.indexOf(pizzas)+1)  + ": " + pizzas.getPizzaName() + " pizza, Time of order: " + +time.getHour() + ":" + time.getMinute() + "\n";
+            result += "Order " + (i + 1) + ": " + orders.get(i).getPizzaName() + " pizza, Time of order: " + +time.getHour() + ":" + time.getMinute() + "\n";
 
         }
         return result;
-
     }
 
 }

@@ -18,12 +18,13 @@ public class OrganizeOrdersTest {
     OrganizeOrders or;
     MenuCard mc;
     private int tempPizzaNr;
+
     public OrganizeOrdersTest() {
         or = new OrganizeOrders();
         mc = new MenuCard();
-        pizza = new Pizza("Dennis", "tomatsauce", 57);
-        tempPizzaNr = 0;
-        
+        pizza = new Pizza("Visuvio", "tomatsauce, ost , skinke og oregano", 57);
+        tempPizzaNr = 1;
+
         or.addOrder(pizza);
     }
 
@@ -36,7 +37,7 @@ public class OrganizeOrdersTest {
     @Test
     public void testRemoveOrder() {
 
-       or.getOrders().remove(tempPizzaNr);
+        or.getOrders().remove(tempPizzaNr - 1);
 
     }
 

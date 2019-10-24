@@ -54,6 +54,7 @@ public class MenuLine {
         switch (answer) {
 
             case 1:
+
                 System.out.println(menuCard.toString());
 
                 System.out.println("Press 0 to return to main menu");
@@ -73,7 +74,6 @@ public class MenuLine {
 
                 System.out.println("Which pizza from the menu card would you like to add as a order, enter a number 1-14, ");
                 System.out.println("Press 0 to return to main menu");
-                
 
                 int pizzaNo = myScan.nextInt();
 
@@ -89,7 +89,7 @@ public class MenuLine {
             case 3:
                 System.out.println(orders.toString());
 
-                System.out.println("For order remove press 1, else press 0 to return to main menu");
+                System.out.println("For order remove press 1 or to remove all orders press 2, else press 0 to return to main menu");
 
                 int remove = myScan.nextInt();
                 clearConsole();
@@ -100,15 +100,22 @@ public class MenuLine {
                     break;
                 }
 
-                System.out.println("Which order would you like to remove?\n");
-                System.out.println(orders);
-                pizzaNo = myScan.nextInt();
+                if (remove == 2) {
+                    clearConsole();
+                    printMainMenu();
+                    orders.getOrders().clear();
 
-                clearConsole();
-                printMainMenu();
+                }
+                if (remove == 1) {
+                    System.out.println("Which order would you like to remove?\n");
+                    System.out.println(orders.toString());
+                    pizzaNo = myScan.nextInt();
 
-                orders.getOrders().remove(pizzaNo - 1);
+                    clearConsole();
+                    printMainMenu();
 
+                    orders.getOrders().remove(pizzaNo - 1);
+                }
                 break;
 
             case 4:
