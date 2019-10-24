@@ -21,18 +21,19 @@ public class OrganizeOrders {
 
     public void addOrder(Pizza pizza) {
         orders.add(pizza);
-
+        count++;
     }
 
     public void removeOrder(Pizza pizza) {
         orders.remove(pizza);
+        count--;
     }
 
     public String toString() {
         String result = "";
 
         for (Pizza pizzas : orders) {
-            count++;
+          
             result += "Order " + count + ": " + pizzas.getPizzaName() + " pizza, Time of order: " + + time.getHour() + ":" + time.getMinute() + " o'clock" + "\n";
 
         }

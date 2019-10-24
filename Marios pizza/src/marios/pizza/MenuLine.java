@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class MenuLine {
 
     Scanner myScan;
-  
+
     private final menuCard menuCard;
     private final OrganizeOrders orders;
     private final OrderHistory history;
@@ -85,13 +85,12 @@ public class MenuLine {
                 break;
 
             case 3:
-                
-                
+                System.out.println(orders.toString());
+
                 System.out.println("For order remove press 1, else press 6 to return to main menu");
 
                 int remove = myScan.nextInt();
-
-                
+                clearConsole();
 
                 if (remove == 6) {
                     clearConsole();

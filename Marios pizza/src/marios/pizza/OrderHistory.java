@@ -54,7 +54,7 @@ public class OrderHistory {
         String result = "";
         for (Pizza pizzas : pizzaHistory) {
             count++;
-            result += "Order: " + count + ": " + pizzas.getPizzaName() + "\n";
+            result += "Order: " + count+1 + ": " + pizzas.getPizzaName() + "\n";
             
         }
         return result;
