@@ -1,6 +1,7 @@
 package marios.pizza;
 
 import java.io.IOException;
+import static java.lang.System.exit;
 import java.util.Scanner;
 
 /**
@@ -14,7 +15,8 @@ public class MenuLine {
     private final MenuCard menuCard;
     private final OrganizeOrders orders;
     private final OrderHistory history;
-    private int PizzaNr;
+   
+    private int PizzaNo;
     private int answer;
 
     public MenuLine() throws IOException {
@@ -22,12 +24,19 @@ public class MenuLine {
         menuCard = new MenuCard();
         orders = new OrganizeOrders();
         history = new OrderHistory();
-
+      
         printMainMenu();
 
         while (true) {
 
+            System.out.print("\nChoose option: ");
             answer = myScan.nextInt();
+            
+            if(answer == 9){
+                clearConsole();
+                System.out.println("System ending ...");
+                exit(0);
+            }
             getInput(answer);
 
         }
@@ -36,11 +45,13 @@ public class MenuLine {
 
     public static void printMainMenu() {
 
+        
         System.out.println("\n" + "Press 1 to see menu");
         System.out.println("\n" + "Press 2 to add a order");
         System.out.println("\n" + "Press 3 to see current orders or remove a order");
         System.out.println("\n" + "Press 4 to see revenue and order history");
         System.out.println("\n" + "Press 5 to make file with revenues and order history");
+        System.out.println("\n" + "Press 9 to TURN OFF system");
     }
 
     public void clearConsole() {
@@ -62,19 +73,12 @@ public class MenuLine {
 
             case 2:
                 clearConsole();
-                /*System.out.println("Press 1 to continue, else press 0 to return to main menu");
-
-                int order = myScan.nextInt();
-                clearConsole();
-                if (order == 6) {
-                    clearConsole();
-                    printMainMenu();
-                    break;
-                }*/
-
+                
+                System.out.println(menuCard.toString());
+                System.out.println("Press 0 to return to main menu\n");
                 System.out.println("Which pizza from the menu card would you like to add as a order, enter a number 1-14, ");
-                System.out.println("Press 0 to return to main menu");
-
+                System.out.print("Enter pizzaNr: ");
+                
                 int pizzaNo = myScan.nextInt();
 
                 clearConsole();
@@ -109,12 +113,20 @@ public class MenuLine {
                 if (remove == 1) {
                     System.out.println("Which order would you like to remove?\n");
                     System.out.println(orders.toString());
+                    System.out.print("\nChoose order to remove:");
                     pizzaNo = myScan.nextInt();
-
+                    
                     clearConsole();
                     printMainMenu();
-
+                   
+                    try{
                     orders.getOrders().remove(pizzaNo - 1);
+                    }catch (IndexOutOfBoundsException e) {
+                        clearConsole();
+                        System.out.println("Order does not exist!!\n");
+                        System.out.println("Please press 0 to return to main menu");
+                    }
+                    
                 }
                 break;
 
@@ -125,19 +137,21 @@ public class MenuLine {
                 break;
             case 5:
                 history.revenueFile();
+                
             case 0:
                 clearConsole();
 
                 printMainMenu();
 
                 break;
-
+                
             default:
+                
                 clearConsole();
                 printMainMenu();
+                       
                 break;
-
-        }
+            }
 
     }
 

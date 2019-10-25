@@ -37,7 +37,7 @@ public class MenuCard {
     public String toString() {
         String result = "";
         for (Map.Entry<Integer, Pizza> menuCard1 : menuCard.entrySet()) {
-            result += menuCard1.getKey() + ": " + menuCard1.getValue().getPizzaName() + " - " + " " + menuCard1.getValue().getPizzaTopping() + " " + menuCard1.getValue().getPrice() + "kr." + "\n";
+            result += menuCard1.getKey() + ": " + menuCard1.getValue().getPizzaName() + " - " + " " + menuCard1.getValue().getPizzaTopping() + " " + menuCard1.getValue().getPrice() + " kr." + "\n";
         }
         return result;
     }

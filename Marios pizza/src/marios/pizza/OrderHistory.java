@@ -33,11 +33,11 @@ public class OrderHistory {
 
             BufferedWriter bw = new BufferedWriter(fw);
 
-            bw.write("Order history and revenues: " + "\n");
+            bw.write("Order history and revenues: " + "\n\n" );
 
-            bw.write("Total salary in krones is: " + calculateRevenue() + "\n");
+            bw.write("Total salary in Kr. is: " + calculateRevenue() + "\n");
 
-            bw.write("Most popular orders" + "\n");
+            bw.write("Most popular orders" + "\n\n");
 
             bw.write(pizzaHistory());
 

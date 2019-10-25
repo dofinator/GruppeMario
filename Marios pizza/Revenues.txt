@@ -1,5 +1,7 @@
 Order history and revenues: 
-Total salary in krones is: 114
+
+Total salary in Kr. is: 110
 Most popular orders
-Order: 1: Visuvio
-Order: 2: Visuvio
+
+Visuvio
+Amerikaner
