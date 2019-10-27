@@ -32,12 +32,13 @@ public class OrganizeOrders {
 
     public String toString() {
         String result = "";
-
+       
         for (int i = 0; i < orders.size(); i++) {
 
             result += "Order " + (i + 1) + ": " + orders.get(i).getPizzaName() + " pizza, Time of order: " + +time.getHour() + ":" + time.getMinute() + "\n";
 
         }
+        
         return result;
     }
 
