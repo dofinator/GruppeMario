@@ -34,6 +34,7 @@ public class MenuLine {
             if (answer == 9) {
                 clearConsole();
                 history.revenueFile();
+                history.makeHTML();
                 System.out.println("Creating revenue file ...");
                 System.out.println("System ending ...");
 
