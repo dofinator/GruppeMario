@@ -97,7 +97,7 @@ public class OrderHistory {
             }
         }
 
-        return "Most popular pizza is: " + popular + " it has been sold: " + maxCounter + " times";
+        return "Most popular pizza is: " + popular + ", it has been sold " + maxCounter + " times";
     }
 
     public String pizzaHistory() {

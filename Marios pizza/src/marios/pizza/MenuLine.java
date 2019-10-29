@@ -144,7 +144,10 @@ public class MenuLine {
 
                 System.out.println("The total salary is: " + history.calculateRevenue() + " kr" + "\n");
                 System.out.println(history.pizzaHistory());
-                System.out.println(history.mostPopularPizza());
+
+                if (history.getPizzaHistory().size() > 0) {
+                    System.out.println(history.mostPopularPizza());
+                }
                 System.out.println("press 0 to return to main menu");
                 break;
             case 5:
