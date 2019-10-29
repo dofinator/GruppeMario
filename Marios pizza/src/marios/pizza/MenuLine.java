@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class MenuLine {
 
     Scanner myScan;
-
     private final MenuCard menuCard;
     private final OrganizeOrders orders;
     private final OrderHistory history;
@@ -142,8 +141,10 @@ public class MenuLine {
                 break;
 
             case 4:
+
                 System.out.println("The total salary is: " + history.calculateRevenue() + " kr" + "\n");
                 System.out.println(history.pizzaHistory());
+                System.out.println(history.mostPopularPizza());
                 System.out.println("press 0 to return to main menu");
                 break;
             case 5:

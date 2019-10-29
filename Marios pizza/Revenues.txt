@@ -1,8 +1,10 @@
 Order history and revenues: 
 
-Total salary in Kr. is: 177
-Most popular orders
+Total salary in Kr. is: 228
+Pizzas that has been sold
 
 Visuvio
+Visuvio
+Visuvio
 Cacciatore
-Carbona
+Most popular pizza is: Visuvio it has been sold: 3 times
