@@ -40,7 +40,7 @@ public class OrderHistory {
 
             bw.write("Total salary in Kr. is: " + calculateRevenue() + "\n");
 
-            bw.write("Pizzas that has been sold" + "\n\n");
+            bw.write("Pizzas that has been sold:" + "\n\n");
 
             bw.write(pizzaHistory());
 
