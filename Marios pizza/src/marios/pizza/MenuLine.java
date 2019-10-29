@@ -15,7 +15,6 @@ public class MenuLine {
     private final MenuCard menuCard;
     private final OrganizeOrders orders;
     private final OrderHistory history;
-
     private int PizzaNo;
     private int answer;
 
@@ -48,13 +47,13 @@ public class MenuLine {
     }
 
     public static void printMainMenu() {
-      //new comment
+
         System.out.println("🍕 Marios Pizzaria 🍕");
         System.out.println("\n" + "Press 1 to see menu");
         System.out.println("\n" + "Press 2 to add a order");
         System.out.println("\n" + "Press 3 to see current orders or remove a order");
         System.out.println("\n" + "Press 4 to see revenue and order history");
-        System.out.println("\n" + "Press 5 to make file with revenues and order history");
+        System.out.println("\n" + "Press 5 to make HTML and text file with revenues and order history");
         System.out.println("\n" + "Press 9 to TURN OFF system");
     }
 
@@ -81,7 +80,7 @@ public class MenuLine {
                 System.out.println(menuCard.toString());
                 System.out.println("Press 0 to return to main menu\n");
                 System.out.println("Which pizza from the menu card would you like to add as a order, enter a number 1-14, ");
-                System.out.print("Enter pizzaNr: ");
+                System.out.print("Enter pizza number: ");
 
                 int pizzaNo = myScan.nextInt();
 
@@ -119,7 +118,7 @@ public class MenuLine {
 
                 }
                 if (remove == 1) {
-                    
+
                     System.out.println("Which order would you like to remove?\n");
                     System.out.println(orders.toString());
                     System.out.print("\nChoose order to remove:");
@@ -148,6 +147,7 @@ public class MenuLine {
                 break;
             case 5:
                 history.revenueFile();
+                history.makeHTML();
 
             case 0:
                 clearConsole();

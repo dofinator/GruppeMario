@@ -1,6 +1,7 @@
 package marios.pizza;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,9 +14,11 @@ import java.util.logging.Logger;
  */
 public class OrderHistory {
 
-    private static int count;
-    
     private ArrayList<Pizza> pizzaHistory = new ArrayList<>();
+
+    public ArrayList<Pizza> getPizzaHistory() {
+        return pizzaHistory;
+    }
 
     public int calculateRevenue() {
         int revenue = 0;
@@ -33,7 +36,7 @@ public class OrderHistory {
 
             BufferedWriter bw = new BufferedWriter(fw);
 
-            bw.write("Order history and revenues: " + "\n\n" );
+            bw.write("Order history and revenues: " + "\n\n");
 
             bw.write("Total salary in Kr. is: " + calculateRevenue() + "\n");
 
@@ -47,8 +50,31 @@ public class OrderHistory {
         }
     }
 
-    public ArrayList<Pizza> getPizzaHistory() {
-        return pizzaHistory;
+    public void makeHTML() {
+
+        try {
+            String result = "";
+            for (Pizza pizzas : pizzaHistory) {
+
+                result += "<li>" + pizzas.getPizzaName() + "</li>";
+            }
+
+            String head = "<div><h1>Orders history</h1><p>";
+            String pizzas = "<h3> Pizza history </h3>" + result + "<br/><br/>";
+            String income = "<h3> Revenues </h3><li>" + "Total income: " + calculateRevenue() + " kr" + "</li>";
+
+            FileWriter fw = new FileWriter("RevenuesHTML.html");
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            bw.write(head);
+            bw.write(income);
+            bw.write(pizzas);
+            bw.close();
+
+        } catch (IOException ex) {
+            System.out.println("Could not make html file");
+        }
+
     }
 
     public String pizzaHistory() {
