@@ -25,6 +25,7 @@ public class MenuLine {
 
         printMainMenu();
 
+       
         while (true) {
 
             System.out.print("\nChoose option: ");
@@ -93,6 +94,12 @@ public class MenuLine {
                     printMainMenu();
                 } else {
                     System.out.println("Pizza does not exist in menu card, please press 0 to return to main menu and try again ...");
+                }
+                
+                if(pizzaNo == 0){
+                    clearConsole();
+                    printMainMenu();
+                         
                 }
 
                 break;
