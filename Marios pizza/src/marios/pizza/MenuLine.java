@@ -25,7 +25,6 @@ public class MenuLine {
 
         printMainMenu();
 
-       
         while (true) {
 
             System.out.print("\nChoose option: ");
@@ -95,11 +94,11 @@ public class MenuLine {
                 } else {
                     System.out.println("Pizza does not exist in menu card, please press 0 to return to main menu and try again ...");
                 }
-                
-                if(pizzaNo == 0){
+
+                if (pizzaNo == 0) {
                     clearConsole();
                     printMainMenu();
-                         
+
                 }
 
                 break;
@@ -133,17 +132,14 @@ public class MenuLine {
 
                     try {
                         orders.getOrders().remove(pizzaNo - 1);
-                    } catch (IndexOutOfBoundsException e) {
-                        clearConsole();
-                        System.out.println("Order does not exist!!\n");
-
                         clearConsole();
                         printMainMenu();
+                    } catch (IndexOutOfBoundsException e) {
+                        clearConsole();
+                        System.out.println("Order does not exist, please press 0 and try again!!\n");
 
                     }
                 }
-                clearConsole();
-                printMainMenu();
 
                 break;
 
