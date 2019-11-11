@@ -5,6 +5,8 @@
  */
 package marios.pizza;
 
+import marios.Pizza.Pizza;
+import marios.Orders.OrderHistory;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

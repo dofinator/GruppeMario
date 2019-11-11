@@ -1,8 +1,13 @@
-package marios.pizza;
+package marios.Controller;
 
+import marios.Orders.OrganizeOrders;
+import marios.Orders.OrderHistory;
 import java.io.IOException;
 import static java.lang.System.exit;
+import java.util.ArrayList;
 import java.util.Scanner;
+import marios.Pizza.MenuCard;
+import marios.Pizza.Pizza;
 
 /**
  *
@@ -25,7 +30,6 @@ public class MenuLine {
 
         printMainMenu();
 
-       
         while (true) {
 
             System.out.print("\nChoose option: ");
@@ -84,22 +88,28 @@ public class MenuLine {
                 System.out.print("Enter pizza number: ");
 
                 int pizzaNo = myScan.nextInt();
-
                 clearConsole();
+                System.out.println("How many would you like to add?");
+                int pizzaAmount = myScan.nextInt();
 
                 if (pizzaNo >= 1 && pizzaNo <= 14) {
-                    orders.getOrders().add(menuCard.getMenuCard().get(pizzaNo));
-                    history.getPizzaHistory().add(menuCard.getMenuCard().get(pizzaNo));
+                    ArrayList<Pizza> oneOrder = new ArrayList();
+
+                    
+                    
+                    
+                    /*orders.getOrders().add(menuCard.getMenuCard().get(pizzaNo));*/
+                    /*history.getPizzaHistory().add(menuCard.getMenuCard().get(pizzaNo));*/
                     clearConsole();
                     printMainMenu();
                 } else {
                     System.out.println("Pizza does not exist in menu card, please press 0 to return to main menu and try again ...");
                 }
-                
-                if(pizzaNo == 0){
+
+                if (pizzaNo == 0) {
                     clearConsole();
                     printMainMenu();
-                         
+
                 }
 
                 break;
@@ -128,6 +138,7 @@ public class MenuLine {
 
                     System.out.println("Which order would you like to remove?\n");
                     System.out.println(orders.toString());
+                    System.out.println("Press 0 to return to main menu");
                     System.out.print("\nChoose order to remove:");
                     pizzaNo = myScan.nextInt();
 
@@ -142,8 +153,11 @@ public class MenuLine {
 
                     }
                 }
-                clearConsole();
-                printMainMenu();
+
+                if (remove > 3) {
+                    System.out.println("!!Invalid option!!\n");
+                    System.out.println("Press 0 to returnt to main menu");
+                }
 
                 break;
 

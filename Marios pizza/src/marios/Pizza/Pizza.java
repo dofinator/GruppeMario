@@ -1,4 +1,4 @@
-package marios.pizza;
+package marios.Pizza;
 
 /**
  *
@@ -8,9 +8,9 @@ public class Pizza {
 
     private String pizzaName;
     private String pizzaTopping;
-    private int price;
+    private double price;
 
-    public Pizza(String pizzaName, String pizzaTopping, int price) {
+    public Pizza(String pizzaName, String pizzaTopping, double price) {
         this.pizzaName = pizzaName;
         this.pizzaTopping = pizzaTopping;
         this.price = price;
@@ -24,7 +24,7 @@ public class Pizza {
         return pizzaTopping;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 

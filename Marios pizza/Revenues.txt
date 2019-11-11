@@ -1,16 +1,12 @@
 Order history and revenues: 
 
-Total salary in Kr. is: 558
+Total salary in Kr. is: 352
 Pizzas that has been sold:
 
-Cacciatore
+Amerikaner
 Carbona
 Visuvio
 Amerikaner
-Amerikaner
-Amerikaner
-Amerikaner
-Amerikaner
-Amerikaner
 Carbona
-Most popular pizza is: Amerikaner, it has been sold 6 times
+Carbona
+Most popular pizza is: Carbona, it has been sold 3 times
