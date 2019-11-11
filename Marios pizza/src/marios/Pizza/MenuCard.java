@@ -7,7 +7,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import marios.Connection.DataConnector;
 
-
 /**
  *
  * @author Jonas, Mads, Christoffer og Phillip
@@ -24,22 +23,20 @@ public class MenuCard {
                 ResultSet resultSet = statement.executeQuery("SELECT * FROM pizza");) {
 
             while (resultSet.next()) {
-               
+
                 int pizzaID = resultSet.getInt("Pizza_ID");
                 String pizzaName = resultSet.getString("Pizza_Name");
                 String PizzaTopping = resultSet.getString("Pizza_Topping");
                 double pizzaPrice = resultSet.getDouble("Pizza_Price");
-                
-                Pizza pizza = new Pizza(pizzaName,PizzaTopping,pizzaPrice);
-                
+
+                Pizza pizza = new Pizza(pizzaName, PizzaTopping, pizzaPrice);
+
                 menuCard.put(pizzaID, pizza);
-                
-                
 
             }
 
         } catch (SQLException ex) {
-            
+
             System.out.println("Could not connect to database !!");
         }
 
@@ -50,7 +47,7 @@ public class MenuCard {
     }
 
     @Override
-        public String toString() {
+    public String toString() {
         String result = "";
         for (Map.Entry<Integer, Pizza> menuCard1 : menuCard.entrySet()) {
             result += menuCard1.getKey() + ": " + menuCard1.getValue().getPizzaName() + " - " + " " + menuCard1.getValue().getPizzaTopping() + " " + menuCard1.getValue().getPrice() + " kr." + "\n";

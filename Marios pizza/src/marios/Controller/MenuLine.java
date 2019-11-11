@@ -19,8 +19,9 @@ public class MenuLine {
     private final MenuCard menuCard;
     private final OrganizeOrders orders;
     private final OrderHistory history;
-    private int PizzaNo;
+    private int pizzaNo;
     private int answer;
+    private ArrayList<Pizza> oneOrder = new ArrayList<>();
 
     public MenuLine() throws IOException {
         myScan = new Scanner(System.in);
@@ -87,21 +88,22 @@ public class MenuLine {
                 System.out.println("Which pizza from the menu card would you like to add as a order, enter a number 1-14, ");
                 System.out.print("Enter pizza number: ");
 
-                int pizzaNo = myScan.nextInt();
+                pizzaNo = myScan.nextInt();
+
                 clearConsole();
-                System.out.println("How many would you like to add?");
-                int pizzaAmount = myScan.nextInt();
 
                 if (pizzaNo >= 1 && pizzaNo <= 14) {
-                    ArrayList<Pizza> oneOrder = new ArrayList();
 
-                    
-                    
-                    
-                    /*orders.getOrders().add(menuCard.getMenuCard().get(pizzaNo));*/
-                    /*history.getPizzaHistory().add(menuCard.getMenuCard().get(pizzaNo));*/
+                    System.out.println("How many would you like to add?");
+                    int pizzaAmount = myScan.nextInt();
                     clearConsole();
-                    printMainMenu();
+
+                    for (int i = 0; i <= pizzaAmount; i++) {
+                        oneOrder.add(menuCard.getMenuCard().get(pizzaNo));
+                    }
+
+                    // clearConsole();
+                    //printMainMenu();
                 } else {
                     System.out.println("Pizza does not exist in menu card, please press 0 to return to main menu and try again ...");
                 }
@@ -111,6 +113,18 @@ public class MenuLine {
                     printMainMenu();
 
                 }
+                 System.out.println("Would you like to add more to this order? Press 1 for yes, else press 0");
+                    
+                    int addMore = myScan.nextInt();
+                if(addMore == 1){
+                    getInput(2);
+                    
+                } else{
+                    clearConsole();
+                    printMainMenu();
+                    
+                }
+                
 
                 break;
 
@@ -138,25 +152,18 @@ public class MenuLine {
 
                     System.out.println("Which order would you like to remove?\n");
                     System.out.println(orders.toString());
-                    System.out.println("Press 0 to return to main menu");
                     System.out.print("\nChoose order to remove:");
                     pizzaNo = myScan.nextInt();
 
                     try {
                         orders.getOrders().remove(pizzaNo - 1);
-                    } catch (IndexOutOfBoundsException e) {
-                        clearConsole();
-                        System.out.println("Order does not exist!!\n");
-
                         clearConsole();
                         printMainMenu();
+                    } catch (IndexOutOfBoundsException e) {
+                        clearConsole();
+                        System.out.println("Order does not exist, please press 0 and try again!!\n");
 
                     }
-                }
-
-                if (remove > 3) {
-                    System.out.println("!!Invalid option!!\n");
-                    System.out.println("Press 0 to returnt to main menu");
                 }
 
                 break;
