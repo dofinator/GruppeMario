@@ -144,20 +144,22 @@ public class MenuLine {
 
                     try {
                         orders.getOrders().remove(pizzaNo - 1);
-                    } catch (IndexOutOfBoundsException e) {
-                        clearConsole();
-                        System.out.println("Order does not exist!!\n");
-
                         clearConsole();
                         printMainMenu();
+                    } catch (IndexOutOfBoundsException e) {
+                        clearConsole();
+                        System.out.println("Order does not exist, please press 0 and try again!!\n");
 
                     }
                 }
+<<<<<<< HEAD:Marios pizza/src/marios/Controller/MenuLine.java
 
                 if (remove > 3) {
                     System.out.println("!!Invalid option!!\n");
                     System.out.println("Press 0 to returnt to main menu");
                 }
+=======
+>>>>>>> 59b6f5ed1797b6c5fdaa7d66355a6a16bcf2eb9f:Marios pizza/src/marios/pizza/MenuLine.java
 
                 break;
 

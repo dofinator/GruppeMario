@@ -1,5 +1,6 @@
 Order history and revenues: 
 
+<<<<<<< HEAD
 Total salary in Kr. is: 352
 Pizzas that has been sold:
 
@@ -10,3 +11,10 @@ Amerikaner
 Carbona
 Carbona
 Most popular pizza is: Carbona, it has been sold 3 times
+=======
+Total salary in Kr. is: 57
+Pizzas that has been sold:
+
+Visuvio
+Most popular pizza is: Visuvio, it has been sold 1 times
+>>>>>>> 59b6f5ed1797b6c5fdaa7d66355a6a16bcf2eb9f
