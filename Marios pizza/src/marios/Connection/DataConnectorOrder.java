@@ -115,4 +115,16 @@ public class DataConnectorOrder {
 
     }
 
+    public void setAllOrdersInActive() {
+
+        try (Connection conn = DataConnector.getConnection();
+                Statement stmt = conn.createStatement();) {
+            stmt.executeUpdate("DELETE FROM Orders");
+
+        } catch (SQLException ex) {
+            System.out.println("Could not insert values into database Orders!!");
+        }
+
+    }
+
 }
