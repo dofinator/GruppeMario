@@ -1,47 +1,44 @@
-
-
 package marios.Controller;
 
 import java.io.IOException;
 import static java.lang.System.exit;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 import mario.Display.MyUtils;
+import marios.Orders.Order;
 import marios.Orders.OrderHistory;
-import marios.Orders.OrganizeOrders;
 import marios.Pizza.MenuCard;
 import marios.Pizza.Pizza;
 
-
 public class GetInput {
-    
+
     Scanner myScan;
     private final MenuCard menuCard;
-    private final OrganizeOrders orders;
     private final OrderHistory history;
     private final MyUtils myUtils;
-    private int PizzaNo;
+    private Order currentOrder;
+    private int pizzaNo;
     private int answer;
+    private int customerId;
+    private String pickUpTime;
 
     public GetInput() {
         myScan = new Scanner(System.in);
         menuCard = new MenuCard();
-        orders = new OrganizeOrders();
         history = new OrderHistory();
         myUtils = new MyUtils();
+
     }
 
-        
-        
-     public void getUserInput() throws IOException {
-        
-        answer = myScan.nextInt(); 
-        
+    public void getUserInput() throws IOException {
+
         myUtils.clearConsole();
         myUtils.printMainMenu();
-        
-        
-        switch (answer) {
+
+        System.out.println("Choose option: ");
+
+        switch (myScan.nextInt()) {
             case 1:
                 System.out.println(menuCard.toString());
                 System.out.println("Press 0 to return to main menu");
@@ -49,38 +46,58 @@ public class GetInput {
                 break;
 
             case 2:
-                myUtils.clearConsole();
-                
-                System.out.println(menuCard.toString());
-                System.out.println("Press 0 to return to main menu\n");
-                System.out.println("Which pizza from the menu card would you like to add as a order, enter a number 1-14, ");
-                myUtils.splitDisplay();
-                System.out.print("Enter pizza number: ");
 
-                int pizzaNo = myScan.nextInt();
-                
-                myUtils.clearConsole();
-                
-                System.out.println("How many would you like to add?");
-                
-                int pizzaAmount = myScan.nextInt();
+                while (true) {
+                    myUtils.clearConsole();
+                    System.out.println(menuCard.toString());
+                    System.out.println("Press 0 to return to main menu\n");
+                    System.out.println("Which pizza from the menu card would you like to add as a order, enter a number 1-14, ");
+                    System.out.print("Enter pizza number: ");
 
-                if (pizzaNo >= 1 && pizzaNo <= 14) {
-                    ArrayList<Pizza> oneOrder = new ArrayList();
+                    int pizzaNo = myScan.nextInt();
+
                     myUtils.clearConsole();
-                    myUtils.printMainMenu();
-                } else {
-                    System.out.println("Pizza does not exist in menu card, please press 0 to return to main menu and try again ...");
+
+                    if (pizzaNo >= 1 && pizzaNo <= 14) {
+
+                        if (currentOrder == null) {
+                            this.currentOrder = new Order(new ArrayList<>(), pickUpTime, customerId);
+
+                        }
+                        this.currentOrder.getPizzas().add(menuCard.getMenuCard().get(pizzaNo));
+
+                    } else {
+                        System.out.println("Pizza does not exist in menu card, please press 0 to return to main menu and try again ...");
+                        break;
+                    }
+
+                    if (pizzaNo == 0) {
+
+                        myUtils.clearConsole();
+
+                        break;
+                    }
+
+                    // lave database kald, hvor jeg gemmer orderen med pizzaer før jeg nulstiller ordren.
+                    // this.currentOrder = null; nulstil orderen
                 }
-                if (pizzaNo == 0) {
+
+                if (this.currentOrder != null) {
                     myUtils.clearConsole();
-                    myUtils.printMainMenu();
+                    System.out.println("Enter a customer id for this order");
+                    customerId = myScan.nextInt();
+                    myScan.nextLine();
+                    System.out.println("Enter a pick up time");
+                    String pickUpTime = myScan.nextLine();
+                    myUtils.clearConsole();
+
                 }
+
                 break;
 
             case 3:
-                System.out.println(orders.toString());
-
+                myUtils.clearConsole();
+                System.out.println(this.currentOrder.toString());
                 System.out.println("For order remove press 1 or to remove all orders press 2, else press 0 to return to main menu");
 
                 int remove = myScan.nextInt();
@@ -90,9 +107,10 @@ public class GetInput {
                     myUtils.clearConsole();
                     myUtils.printMainMenu();
                     break;
-                } 
+                }
                 if (remove == 2) {
                     myUtils.clearConsole();
+                    
                     myUtils.printMainMenu();
                     orders.getOrders().clear();
                 }
@@ -106,7 +124,7 @@ public class GetInput {
 
                     try {
                         orders.getOrders().remove(pizzaNo - 1);
-                    }catch (IndexOutOfBoundsException e) {
+                    } catch (IndexOutOfBoundsException e) {
                         myUtils.clearConsole();
                         System.out.println("Order does not exist!!\n");
 
@@ -121,6 +139,7 @@ public class GetInput {
                 break;
 
             case 4:
+                myUtils.clearConsole();
                 System.out.println("The total salary is: " + history.calculateRevenue() + " kr" + "\n");
                 System.out.println(history.pizzaHistory());
 
@@ -129,12 +148,12 @@ public class GetInput {
                 }
                 System.out.println("press 0 to return to main menu");
                 break;
-                
+
             case 5:
                 history.revenueFile();
                 history.makeHTML();
                 break;
-                
+
             case 0:
                 myUtils.clearConsole();
 
@@ -144,13 +163,13 @@ public class GetInput {
 
             default:
                 if (answer == 9) {
-                myUtils.clearConsole();
-                history.revenueFile();
-                history.makeHTML();
-                System.out.println("Creating revenue file ...");
-                System.out.println("System ending ...");
-                exit(0);
-            }
+                    myUtils.clearConsole();
+                    history.revenueFile();
+                    history.makeHTML();
+                    System.out.println("Creating revenue file ...");
+                    System.out.println("System ending ...");
+                    exit(0);
+                }
                 myUtils.clearConsole();
                 myUtils.printMainMenu();
                 break;
