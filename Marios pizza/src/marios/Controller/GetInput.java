@@ -6,6 +6,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 import mario.Display.MyUtils;
+import marios.Connection.DataConnector;
+import marios.Connection.DataConnectorOrder;
 import marios.Orders.Order;
 import marios.Orders.OrderHistory;
 import marios.Pizza.MenuCard;
@@ -22,8 +24,10 @@ public class GetInput {
     private int answer;
     private int customerId;
     private String pickUpTime;
+    private DataConnectorOrder connectOrderDatabase;
 
     public GetInput() {
+        connectOrderDatabase = new DataConnectorOrder();
         myScan = new Scanner(System.in);
         menuCard = new MenuCard();
         history = new OrderHistory();
@@ -46,6 +50,8 @@ public class GetInput {
                 break;
 
             case 2:
+                
+                this.currentOrder = null;
 
                 while (true) {
                     myUtils.clearConsole();
@@ -77,10 +83,12 @@ public class GetInput {
 
                         break;
                     }
-
+                    
                     // lave database kald, hvor jeg gemmer orderen med pizzaer før jeg nulstiller ordren.
+                   
                     // this.currentOrder = null; nulstil orderen
                 }
+                
 
                 if (this.currentOrder != null) {
                     myUtils.clearConsole();
@@ -92,10 +100,17 @@ public class GetInput {
                     myUtils.clearConsole();
 
                 }
-
+                
+                connectOrderDatabase.insertOrder(customerId, pizzaNo, pickUpTime);
+                /*for(int i = 0; i < currentOrder.getPizzas().size(); i++ ){
+                connectOrderDatabase.insertOrder(customerId, menuCard.getMenuCard().get(i), pickUpTime);*/
+                
+               
                 break;
 
             case 3:
+                
+                
                 myUtils.clearConsole();
                 System.out.println(this.currentOrder.toString());
                 System.out.println("For order remove press 1 or to remove all orders press 2, else press 0 to return to main menu");
