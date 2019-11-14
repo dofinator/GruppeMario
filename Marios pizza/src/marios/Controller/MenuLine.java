@@ -1,13 +1,10 @@
 package marios.Controller;
 
-import marios.Orders.OrganizeOrders;
-import marios.Orders.OrderHistory;
 import java.io.IOException;
 import static java.lang.System.exit;
-import java.util.ArrayList;
 import java.util.Scanner;
-import marios.Pizza.MenuCard;
-import marios.Pizza.Pizza;
+import mario.Display.MyUtils;
+import marios.Orders.OrderHistory;
 
 /**
  *
@@ -15,59 +12,28 @@ import marios.Pizza.Pizza;
  */
 public class MenuLine {
 
-    Scanner myScan;
-    private final MenuCard menuCard;
-    private final OrganizeOrders orders;
-    private final OrderHistory history;
-    private int PizzaNo;
-    private int answer;
+    private MyUtils myUtils;
+    private GetInput getInput;
+  
+    
 
     public MenuLine() throws IOException {
-        myScan = new Scanner(System.in);
-        menuCard = new MenuCard();
-        orders = new OrganizeOrders();
-        history = new OrderHistory();
 
-        printMainMenu();
+        myUtils = new MyUtils();
+        getInput = new GetInput();
+       
 
+        myUtils.printMainMenu();
+        System.out.print("Choose option: ");
         while (true) {
 
-            System.out.print("\nChoose option: ");
-            answer = myScan.nextInt();
-
-            if (answer == 9) {
-                clearConsole();
-                history.revenueFile();
-                history.makeHTML();
-                System.out.println("Creating revenue file ...");
-                System.out.println("System ending ...");
-
-                exit(0);
-
-            }
-            getInput(answer);
-
-        }
-
-    }
-
-    public static void printMainMenu() {
-
-        System.out.println("🍕 Marios Pizzaria 🍕");
-        System.out.println("\n" + "Press 1 to see menu");
-        System.out.println("\n" + "Press 2 to add a order");
-        System.out.println("\n" + "Press 3 to see current orders or remove a order");
-        System.out.println("\n" + "Press 4 to see revenue and order history");
-        System.out.println("\n" + "Press 5 to make HTML and text file with revenues and order history");
-        System.out.println("\n" + "Press 9 to TURN OFF system");
-    }
-
-    public void clearConsole() {
-        for (int i = 0; i <= 100; i++) {
-            System.out.println("");
+           
+            getInput.getUserInput();
+             
         }
     }
 
+<<<<<<< HEAD
     public void getInput(int number) throws IOException {
         clearConsole();
         switch (answer) {
@@ -194,4 +160,6 @@ public class MenuLine {
 
     }
 
+=======
+>>>>>>> DenRigtige
 }
